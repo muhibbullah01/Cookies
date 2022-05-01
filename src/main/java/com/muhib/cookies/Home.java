@@ -17,6 +17,7 @@ public class Home extends HttpServlet{
 			throws ServletException, IOException{
 		
 		PrintWriter out = res.getWriter();
+		//req.getRequestDispatcher("link.html").include(req, res);
 		HttpSession session = req.getSession();
 		String password = (String)session.getAttribute("pass");
 		String name = "";
@@ -30,6 +31,12 @@ public class Home extends HttpServlet{
 					name = c.getValue();
 					out.println(
 							"<h1>Welcome Home "+name+"! , You've successfully logged In!</h1>"
+							);
+					out.println(
+							"<a href='LogoutServlet'>LogOut |</a>"
+							);
+					out.println(
+							"<a href='ProfileServlet'> Profile </a>"
 							);
 				}
 				
